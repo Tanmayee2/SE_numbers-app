@@ -15,11 +15,13 @@
         <label id="sum"></label>
     </section>
     <script>
-        function add() {
-            let num1 = document.getElementById("operand1");
-            let num2 = document.getElementById("operand2");
-
-            let sum = Number(num1.value) + Number(num2.value);
+        async function add() {
+            const num1 = document.getElementById("operand1");
+            const num2 = document.getElementById("operand2");
+            let n = num1.value;
+            let m = num2.value;
+            const response = await fetch("https://arithmetic-service-tanmayee2.onrender.com//add/" + n + "/" + m);
+            const sum = await response.json();
             document.getElementById("sum").innerText = sum;
         }
     </script>
